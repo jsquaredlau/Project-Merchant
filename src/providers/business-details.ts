@@ -11,6 +11,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class BusinessDetails {
 
-  name: string = "BASYXLab"
+  name: string = "BASYXLab";
+  endpointUrl: string = "http://jsquared.ga/api/v1/merchant";
 
 }

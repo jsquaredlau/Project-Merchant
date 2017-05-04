@@ -44,6 +44,17 @@ export class Points {
       console.log(barcodeData.cancelled);
       console.log(barcodeData.text);
       console.log(JSON.parse(barcodeData.text).name);
+      const customerDetails = JSON.parse(barcodeData.text);
+      if (customerDetails.fbId !== null && customerDetails.customerAddress !== null) {
+        this.laasEndpoint.pointDistributionRequest(customerDetails.fbId, customerDetails.customerAddress, this.selectedPoints)
+          .subscribe(
+          (result) => {
+            console.log(result);
+          },
+          (error) => {
+            console.log(error);
+          })
+      }
       // Scan barcode
       // Check correct information is available
       // - fbId
