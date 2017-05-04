@@ -24,7 +24,7 @@
         <ng-template ngFor let-product [ngForOf]="items" let-j="index">
           <ion-col class="point-category" *ngIf="i <= j && j <= (i + 2)" (click)="setPoints(product.value)">
             <div class="content">
-              <h2>{{ product.name }}</h2>
+              <span class="name">{{ product.name }}</span>
               <p class="value">{{ product.value }} Pts</p>
             </div>
           </ion-col>
@@ -32,63 +32,12 @@
       </ion-row>
     </ng-template>
 
-    <!-- <ion-row align-items-center *ngFor="let item of items; let i = index;">
-      <ion-col class="point-category">
-        <div class="content">
-          <h2>{{ item.name }}</h2>
-          <p class="value">{{ item.value }}</p>
-        </div>
-      </ion-col>
-    </ion-row> -->
-
-    <!-- <ion-row align-items-center *ngFor="let item of items; let i = index; trackBy: rowSetup">
-      <ion-col class="point-category">
-        <div class="content">
-          <h2>Croissant</h2>
-          <p class="value">10 Pts</p>
-        </div>
-      </ion-col>
-      <ion-col class="point-category">
-        <div class="content">
-          <h2>Bruschetta</h2>
-          <p class="value">16 Pts</p>
-        </div>
-      </ion-col>
-      <ion-col class="point-category">
-        <div class="content">
-          <h2>Coffee</h2>
-          <p class="value">3 Pts</p>
-        </div>
-      </ion-col>
-    </ion-row>
-
-    <ion-row align-items-center>
-      <ion-col class="point-category">
-        <div class="content">
-          <h2>Scrolls</h2>
-          <span class="value">10 Pts</span>
-        </div>
-      </ion-col>
-      <ion-col class="point-category">
-        <div class="content">
-          <h2>Meat Pie</h2>
-          <span class="value">16 Pts</span>
-        </div>
-      </ion-col>
-      <ion-col class="point-category">
-        <div class="content">
-          <h2>Muffin</h2>
-          <span class="value">3 Pts</span>
-        </div>
-      </ion-col>
-    </ion-row> -->
-
     <ion-row align-items-center>
       <ion-col class="point-category" (click)="setPoints(customA.value)">
         <div class="content">
           <span class="point-label">Custom Point</span>
           <ion-item>
-            <ion-input #customA type="number" placeholder="Custom Point"></ion-input>
+            <ion-input #customA type="number" placeholder="value"></ion-input>
           </ion-item>
         </div>
       </ion-col>
@@ -96,7 +45,7 @@
         <div class="content">
           <span class="point-label">Custom Point</span>
           <ion-item>
-            <ion-input #customB type="number" placeholder="Custom Point"></ion-input>
+            <ion-input #customB type="number" placeholder="value"></ion-input>
           </ion-item>
         </div>
       </ion-col>
@@ -104,7 +53,7 @@
         <div class="content">
           <span class="point-label">Custom Point</span>
           <ion-item>
-            <ion-input #customC type="number" placeholder="Custom Point"></ion-input>
+            <ion-input #customC type="number" placeholder="value"></ion-input>
           </ion-item>
         </div>
       </ion-col>

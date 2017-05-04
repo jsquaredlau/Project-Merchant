@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Toast } from '@ionic-native/toast';
 // import { ZBar, ZBarOptions } from '@ionic-native/zbar';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { BusinessDetails } from '../../providers/business-details';
+import { LaasEndpoint } from '../../providers/laas-endpoint';
 
 /**
  * Generated class for the Points page.
@@ -14,7 +16,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 @Component({
   selector: 'page-points',
   templateUrl: 'points.html',
-  providers: [Toast, BarcodeScanner]
+  providers: [Toast, BarcodeScanner, BusinessDetails]
 })
 export class Points {
 
@@ -28,9 +30,10 @@ export class Points {
     { "name": "Muffin", "value": 4 }
   ];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private toast: Toast, private barcodeScanner: BarcodeScanner) { }
+  constructor(public navCtrl: NavController, public navParams: NavParams, private toast: Toast, private barcodeScanner: BarcodeScanner, private businessDetails: BusinessDetails, private laasEndpoint: LaasEndpoint) { }
 
   ionViewDidLoad() {
+    console.log(this.businessDetails.name);
     console.log('ionViewDidLoad Points');
   }
 
