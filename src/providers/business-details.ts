@@ -12,6 +12,6 @@ import 'rxjs/add/operator/map';
 export class BusinessDetails {
 
   name: string = "BASYXLab";
-  endpointUrl: string = "http://jsquared.ga/api/v1/merchant";
+  endpointUrl: string = "http://jsquared.ga:3000/api/v1/merchant";
 
 }
