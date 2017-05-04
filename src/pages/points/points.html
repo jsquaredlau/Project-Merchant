@@ -1,0 +1,100 @@
+<!--
+  Generated template for the Points page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title>Points</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+
+    <ion-row align-items-center>
+      <ion-col class="point-category">
+        <div class="content">
+          <h2>Croissant</h2>
+          <p class="value">10 Pts</p>
+        </div>
+      </ion-col>
+      <ion-col class="point-category">
+        <div class="content">
+          <h2>Bruschetta</h2>
+          <p class="value">16 Pts</p>
+        </div>
+      </ion-col>
+      <ion-col class="point-category">
+        <div class="content">
+          <h2>Coffee</h2>
+          <p class="value">3 Pts</p>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row align-items-center>
+      <ion-col class="point-category">
+        <div class="content">
+          <h2>Scrolls</h2>
+          <span class="value">10 Pts</span>
+        </div>
+      </ion-col>
+      <ion-col class="point-category">
+        <div class="content">
+          <h2>Meat Pie</h2>
+          <span class="value">16 Pts</span>
+        </div>
+      </ion-col>
+      <ion-col class="point-category">
+        <div class="content">
+          <h2>Muffin</h2>
+          <span class="value">3 Pts</span>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row align-items-center>
+      <ion-col class="point-category">
+        <div class="content">
+          <span class="point-label">Custom Point</span>
+          <ion-item>
+            <ion-input type="number" placeholder="Custom Point"></ion-input>
+          </ion-item>
+        </div>
+      </ion-col>
+      <ion-col class="point-category">
+        <div class="content">
+          <span class="point-label">Custom Point</span>
+          <ion-item>
+            <ion-input type="number" placeholder="Custom Point"></ion-input>
+          </ion-item>
+        </div>
+      </ion-col>
+      <ion-col class="point-category">
+        <div class="content">
+          <span class="point-label">Custom Point</span>
+          <ion-item>
+            <ion-input type="number" placeholder="Custom Point"></ion-input>
+          </ion-item>
+        </div>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+  <div class="testing-area">
+    <span>{{ selectedPoints }}</span>
+  </div>
+
+  <div class="distribute-button">
+    <button ion-button round outline>Distribute</button>
+  </div>
+</ion-content>
