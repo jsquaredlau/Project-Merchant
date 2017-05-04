@@ -1,0 +1,65 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title>Redeem</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding no-bounce>
+  <ion-grid>
+
+    <ng-template ngFor let-item [ngForOf]="items" let-i="index">
+      <ion-row align-items-center *ngIf="i % 3 === 0">
+        <ng-template ngFor let-product [ngForOf]="items" let-j="index">
+          <ion-col class="point-category" *ngIf="i <= j && j <= (i + 2)" (click)="setPoints(product.value)">
+            <div class="content">
+              <span class="name">{{ product.name }}</span>
+              <p class="value">{{ product.value }} Pts</p>
+            </div>
+          </ion-col>
+        </ng-template>
+      </ion-row>
+    </ng-template>
+
+    <ion-row align-items-center>
+      <ion-col class="point-category" (click)="setPoints(customA.value)">
+        <div class="content">
+          <span class="point-label">Custom Point</span>
+          <ion-item>
+            <ion-input #customA type="number" placeholder="value"></ion-input>
+          </ion-item>
+        </div>
+      </ion-col>
+      <ion-col class="point-category" (click)="setPoints(customB.value)">
+        <div class="content">
+          <span class="point-label">Custom Point</span>
+          <ion-item>
+            <ion-input #customB type="number" placeholder="value"></ion-input>
+          </ion-item>
+        </div>
+      </ion-col>
+      <ion-col class="point-category" (click)="setPoints(customC.value)">
+        <div class="content">
+          <span class="point-label">Custom Point</span>
+          <ion-item>
+            <ion-input #customC type="number" placeholder="value"></ion-input>
+          </ion-item>
+        </div>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+  <div class="testing-area">
+    <span>{{ selectedPoints }}</span>
+  </div>
+
+  <div class="distribute-button">
+    <button ion-button round outline (click)="redeemPoints()">Redeem</button>
+  </div>
+</ion-content>

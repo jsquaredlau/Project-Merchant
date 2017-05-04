@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { Points } from '../pages/points/points';
+import { Redeem } from '../pages/redeem/redeem';
 
 @Component({
   templateUrl: 'app.html'
@@ -13,9 +14,9 @@ import { Points } from '../pages/points/points';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = Points;
+  rootPage: any = Redeem;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{ title: string, component: any }>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
@@ -24,7 +25,8 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
-      { title: 'Points', component: Points }
+      { title: 'Points', component: Points },
+      { title: 'Redeem', component: Redeem }
     ];
 
   }

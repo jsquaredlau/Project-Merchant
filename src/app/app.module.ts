@@ -7,6 +7,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { Points } from '../pages/points/points';
+import { Redeem } from '../pages/redeem/redeem';
 
 import { BusinessDetails } from '../providers/business-details';
 import { LaasEndpoint } from '../providers/laas-endpoint';
@@ -19,7 +20,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     HomePage,
     ListPage,
-    Points
+    Points,
+    Redeem
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     HomePage,
     ListPage,
-    Points
+    Points,
+    Redeem
   ],
   providers: [
     StatusBar,

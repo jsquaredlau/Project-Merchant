@@ -1,0 +1,54 @@
+page-redeem {
+  text-align: center;
+
+  .point-category {
+    text-align: center;
+    height: 20vh;
+    position: relative;
+    border-style: solid;
+    border-width: 1px;
+    border-color: blue;
+
+    .content {
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: table;
+    }
+
+    .name {
+      font-size: 20px;
+    }
+
+    .value {
+      font-size: 20px;
+    }
+
+    .category-button {
+      height: 300px;
+      width: 100%;
+      display: table-cell;
+    }
+
+    input {
+      font-size: 16px;
+      text-align: center;
+    }
+  }
+
+  .testing-area {
+    border-style: dashed;
+    border-width: 1px;
+    border-color: red;
+    height: 50px;
+    width: 100px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .distribute-button {
+    margin-top: 50px;
+  }
+}
