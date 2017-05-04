@@ -19,41 +19,50 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 export class Points {
 
   public selectedPoints: number;
+  public items: any = [
+    { "name": "Croissant", "value": 10 },
+    { "name": "Bruschetta", "value": 16 },
+    { "name": "Coffee", "value": 4 },
+    { "name": "Cinammon Scroll", "value": 5 },
+    { "name": "Meat Pie", "value": 6 },
+    { "name": "Muffin", "value": 4 }
+  ];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private toast: Toast, private barcodeScanner: BarcodeScanner) {
-    this.selectedPoints = 20
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams, private toast: Toast, private barcodeScanner: BarcodeScanner) { }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad Points');
   }
 
-  distributePoints(): void {
+  public distributePoints(): void {
     console.log('IT HASNT CRASHED');
     this.barcodeScanner.scan().then((barcodeData) => {
       console.log(barcodeData.format);
       console.log(barcodeData.cancelled);
       console.log(barcodeData.text);
+      console.log(JSON.parse(barcodeData.text).name);
+      // Scan barcode
+      // Check correct information is available
+      // - fbId
+      // - customerAddress
+      // Call the api jsquared.ga/api/v1/merchant/:business/points/distribute POST
+      // If 200
+      // then fire toast turn off loading dial
+      // else
+      // Say it was a failure and try again
+
+      // this.toast.show('Im a toast', '5000', 'center').subscribe(
+      //   toast => {
+      //     console.log(toast);
+      //   }
     }, (err) => {
       console.log(err);
     });
-    // this.toast.show('Im a toast', '5000', 'center').subscribe(
-    //   toast => {
-    //     console.log(toast);
-    //   }
-    // );
-    //   let zBarOptions: ZBarOptions = {
-    //     flash: 'off',
-    //     drawSight: false
-    //   };
-    //
-    //   this.zbar.scan(zBarOptions)
-    //     .then(result => {
-    //       console.log(result); // Scanned code
-    //     })
-    //     .catch(error => {
-    //       console.log(error); // Error message
-    //     });
-    // }
+  }
+
+  public setPoints(points): void {
+    if (points !== null) {
+      this.selectedPoints = points;
+    }
   }
 }
