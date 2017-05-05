@@ -5,7 +5,6 @@ import { Headers, RequestOptions, Http } from "@angular/http";
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 import { BusinessDetails } from '../../providers/business-details';
 import { LaasEndpoint } from '../../providers/laas-endpoint';
-
 /**
  * Generated class for the Points page.
  *
@@ -16,32 +15,27 @@ import { LaasEndpoint } from '../../providers/laas-endpoint';
 @Component({
   selector: 'page-points',
   templateUrl: 'points.html',
-  providers: [Toast, BarcodeScanner, BusinessDetails]
+  providers: [Toast, BarcodeScanner]
 })
 export class Points {
 
   public selectedPoints: number;
-  public items: any = [
-    { "name": "Croissant", "value": 10 },
-    { "name": "Bruschetta", "value": 16 },
-    { "name": "Coffee", "value": 4 },
-    { "name": "Cinammon Scroll", "value": 5 },
-    { "name": "Meat Pie", "value": 6 },
-    { "name": "Muffin", "value": 4 }
-  ];
+  public items: any[];
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private toast: Toast,
     private barcodeScanner: BarcodeScanner,
-    private businessDetails: BusinessDetails,
+    public businessDetails: BusinessDetails,
     private laasEndpoint: LaasEndpoint,
-    private http: Http
-  ) { }
+    private http: Http,
+  ) {
+    this.items = businessDetails.getSellList();
+  }
 
   ionViewDidLoad() {
-    console.log(this.businessDetails.name);
+    console.log(this.businessDetails.getName());
     console.log('ionViewDidLoad Points');
     this.selectedPoints = 10;
   }
@@ -56,10 +50,13 @@ export class Points {
 
     this.barcodeScanner.scan(barcodeOptions)
       .then((barcodeData) => {
+        if (barcodeData.cancelled) {
+          return;
+        }
         const customerDetails = JSON.parse(barcodeData.text);
         if (customerDetails.fbId !== null && customerDetails.customerAddress !== null) {
           this.http.post(                                                                               // Post request:
-            this.businessDetails.endpointUrl + '/' + this.businessDetails.name + '/points/distribute',  // - URL
+            this.businessDetails.getEndpointUrl() + '/' + this.businessDetails.getName() + '/points/distribute',  // - URL
             {                                                                                           // - Payload
               fbId: customerDetails.fbId,
               customerAddress: customerDetails.customerAddress,

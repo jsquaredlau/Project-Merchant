@@ -16,6 +16,18 @@ import { LaasEndpoint } from '../providers/laas-endpoint';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyBQNNPknNbL21FqtJLDbZpd9DvC3Nqudnk",
+  authDomain: "laas-1.firebaseapp.com",
+  databaseURL: "https://laas-1.firebaseio.com",
+  projectId: "laas-1",
+  storageBucket: "laas-1.appspot.com",
+  messagingSenderId: "622638005740"
+};
+
 @NgModule({
   declarations: [
     MyApp,
@@ -29,6 +41,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

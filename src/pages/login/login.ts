@@ -13,7 +13,7 @@ import { Points } from '../points/points';
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
-  providers: [BusinessDetails, Toast]
+  providers: [Toast]
 })
 export class Login {
 
@@ -27,19 +27,17 @@ export class Login {
   }
 
   public login(businessName: string): void {
-    console.log('hola');
-    console.log(businessName);
     if (businessName === 'BASYXLab') {
-      this.businessDetails.name = businessName;
-      this.businessDetails.endpointUrl = "http://jsquared.ga:3000/api/v1/merchant";
+      this.businessDetails.setName(businessName);
+      this.businessDetails.setEndpointUrl("http://jsquared.ga:3000/api/v1/merchant");
       this.navCtrl.setRoot(Points);
     } else if (businessName === 'NeikidFyre') {
-      this.businessDetails.name = businessName;
-      this.businessDetails.endpointUrl = "http://jsquared.ga:3000/api/v1/merchant";
+      this.businessDetails.setName(businessName);
+      this.businessDetails.setEndpointUrl("http://jsquared.ga:3000/api/v1/merchant");
       this.navCtrl.setRoot(Points);
     } else if (businessName === 'Ataraxia') {
-      this.businessDetails.name = businessName;
-      this.businessDetails.endpointUrl = "http://jsquared.gq:3000/api/v1/merchant";
+      this.businessDetails.setName(businessName);
+      this.businessDetails.setEndpointUrl("http://jsquared.gq:3000/api/v1/merchant");
       this.navCtrl.setRoot(Points);
     } else {
       this.toast.show('Invalid business!', '3000', 'top').subscribe();

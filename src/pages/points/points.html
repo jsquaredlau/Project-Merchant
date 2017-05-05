@@ -32,6 +32,19 @@
       </ion-row>
     </ng-template>
 
+    <!-- <ng-template ngFor let-item [ngForOf]="items | async" let-i="index">
+      <ion-row align-items-center *ngIf="i % 3 === 0">
+        <ng-template ngFor let-product [ngForOf]="items | async" let-j="index">
+          <ion-col class="point-category" *ngIf="i <= j && j <= (i + 2)" (click)="setPoints(product.value)">
+            <div class="content">
+              <span class="name">{{ product.$key }}</span>
+              <p class="value">{{ product.$value }} Pts</p>
+            </div>
+          </ion-col>
+        </ng-template>
+      </ion-row>
+    </ng-template> -->
+
     <ion-row align-items-center>
       <ion-col class="point-category" (click)="setPoints(customA.value)">
         <div class="content">

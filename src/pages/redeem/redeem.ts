@@ -15,17 +15,12 @@ import { BusinessDetails } from '../../providers/business-details';
 @Component({
   selector: 'page-redeem',
   templateUrl: 'redeem.html',
-  providers: [Toast, BarcodeScanner, BusinessDetails]
+  providers: [Toast, BarcodeScanner]
 })
 export class Redeem {
 
   public selectedPoints: number;
-  public items: any = [
-    { "name": "Coffee", "value": 8 },
-    { "name": "Sandwich", "value": 15 },
-    { "name": "Pastry - Sweet", "value": 10 },
-    { "name": "Pastry - Savoury", "value": 15 }
-  ];
+  public items: any[];
 
   constructor(
     public navCtrl: NavController,
@@ -34,10 +29,12 @@ export class Redeem {
     private barcodeScanner: BarcodeScanner,
     private businessDetails: BusinessDetails,
     private http: Http
-  ) { }
+  ) {
+    this.items = businessDetails.getRedemptionList();
+  }
 
   ionViewDidLoad() {
-    console.log(this.businessDetails.name);
+    console.log(this.businessDetails.getName());
     console.log('ionViewDidLoad Points');
     this.selectedPoints = 10;
   }
@@ -52,19 +49,22 @@ export class Redeem {
 
     this.barcodeScanner.scan(barcodeOptions)
       .then((barcodeData) => {
+        if (barcodeData.cancelled) {
+          return;
+        }
         const customerDetails = JSON.parse(barcodeData.text);
         if (customerDetails.fbId !== null && customerDetails.customerAddress !== null) {
-          this.http.post(                                                                               // Post request:
-            this.businessDetails.endpointUrl + '/' + this.businessDetails.name + '/points/redeem',      // - URL
-            {                                                                                           // - Payload
+          this.http.post(
+            this.businessDetails.getEndpointUrl() + '/' + this.businessDetails.getName() + '/points/redeem',
+            {
               fbId: customerDetails.fbId,
               customerAddress: customerDetails.customerAddress,
               points: this.selectedPoints
             },
-            options                                                                                     // - Options
+            options
           )
-            .subscribe(                                                                                 // Post Response:
-            (data) => {                                                                                 // - Data
+            .subscribe(
+            (data) => {
               this.toast.show(this.selectedPoints + ' points redeemed!', '3000', 'top').subscribe();
             },
             (error) => {
@@ -87,7 +87,7 @@ export class Redeem {
             })
         }
       }, (err) => {
-        console.log(err);
+        console.log('err');
       });
   }
 
