@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Observable } from "rxjs";
-import { Headers, RequestOptions, Response, Http } from "@angular/http";
-import { BusinessDetails } from './business-details';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
+// import { Observable } from "rxjs";
+// import { Headers, RequestOptions, Response, Http } from "@angular/http";
+// import { BusinessDetails } from './business-details';
+// import 'rxjs/add/operator/map';
+// import 'rxjs/add/operator/catch';
 
 /*
   Generated class for the LaasEndpoint provider.
@@ -14,7 +14,7 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class LaasEndpoint {
 
-  constructor(public http: Http, private businessDetails: BusinessDetails) { }
+  // constructor(public http: Http, private businessDetails: BusinessDetails) { }
 
   // public pointDistributionRequest(fbId: string, customerAddress: string, points: number): Observable<any> {
   //   let headers = new Headers({ 'Content-Type': 'application/json' });
