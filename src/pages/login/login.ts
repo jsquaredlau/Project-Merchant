@@ -27,17 +27,17 @@ export class Login {
   }
 
   public login(businessName: string): void {
-    if (businessName === 'BASYXLab') {
+    if (businessName === 'Grids Hostel') {
       this.businessDetails.setName(businessName);
       this.businessDetails.setEndpointUrl("http://jsquared.ga:3000/api/v1/merchant");
       this.navCtrl.setRoot(Points);
-    } else if (businessName === 'NeikidFyre') {
+    } else if (businessName === 'Otaru Cafe') {
       this.businessDetails.setName(businessName);
-      this.businessDetails.setEndpointUrl("http://jsquared.ga:3000/api/v1/merchant");
+      this.businessDetails.setEndpointUrl("http://jsquared.gq:3001/api/v1/merchant");
       this.navCtrl.setRoot(Points);
-    } else if (businessName === 'Ataraxia') {
+    } else if (businessName === 'Muffin Collective') {
       this.businessDetails.setName(businessName);
-      this.businessDetails.setEndpointUrl("http://jsquared.gq:3000/api/v1/merchant");
+      this.businessDetails.setEndpointUrl("http://jsquared.gq:3001/api/v1/merchant");
       this.navCtrl.setRoot(Points);
     } else {
       this.toast.show('Invalid business!', '3000', 'top').subscribe();
