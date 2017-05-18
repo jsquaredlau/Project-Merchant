@@ -31,26 +31,26 @@ export class BusinessDetails {
   }
 
   public getRedemptionList(): any {
-    if (this.name === "BASYXLab") {
+    if (this.name === "Grids Hostel") {
       return [
-        { "name": "Coffee", "value": 8 },
-        { "name": "Sandwich", "value": 15 },
-        { "name": "Pastry - Sweet", "value": 10 },
+        { "name": "Single room", "value": 100 },
+        { "name": "Twin room", "value": 200 },
+        { "name": "Double room", "value": 200 },
+        { "name": "Dormitory", "value": 50 }
+      ];
+    } else if (this.name === "Otaru Cafe") {
+      return [
+        { "name": "Coffee", "value": 10 },
+        { "name": "Sandwich", "value": 20 },
+        { "name": "Pastry - Sweet", "value": 15 },
         { "name": "Pastry - Savoury", "value": 15 }
       ];
-    } else if (this.name === "NeikidFyre") {
+    } else if (this.name === "Muffin Collective") {
       return [
-        { "name": "Coffee", "value": 8 },
-        { "name": "Sandwich", "value": 15 },
-        { "name": "Pastry - Sweet", "value": 10 },
-        { "name": "Pastry - Savoury", "value": 15 }
-      ];
-    } else if (this.name === "Ataraxia") {
-      return [
-        { "name": "Coffee", "value": 8 },
-        { "name": "Sandwich", "value": 15 },
-        { "name": "Pastry - Sweet", "value": 10 },
-        { "name": "Pastry - Savoury", "value": 15 }
+        { "name": "Sourdough", "value": 16 },
+        { "name": "Cruffin", "value": 14 },
+        { "name": "Muffin", "value": 12 },
+        { "name": "Cronut", "value": 10 }
       ];
     } else {
       return null;
@@ -58,38 +58,29 @@ export class BusinessDetails {
   }
 
   public getSellList(): any {
-    if (this.name === "BASYXLab") {
+    if (this.name === "Grids Hostel") {
       return [
-        { "name": "Croissant", "value": 10 },
-        { "name": "Bruschetta", "value": 16 },
-        { "name": "Coffee", "value": 4 },
-        { "name": "Cinammon Scroll", "value": 5 },
-        { "name": "Meat Pie", "value": 6 },
-        { "name": "Muffin", "value": 4 }
+        { "name": "Single room", "value": 50 },
+        { "name": "Twin room", "value": 100 },
+        { "name": "Double room", "value": 100 },
+        { "name": "Dormitory", "value": 25 }
       ];
-    } else if (this.name === "NeikidFyre") {
+    } else if (this.name === "Otaru Cafe") {
       return [
-        { "name": "Croissant", "value": 10 },
-        { "name": "Bruschetta", "value": 16 },
-        { "name": "Coffee", "value": 4 },
-        { "name": "Cinammon Scroll", "value": 5 },
-        { "name": "Meat Pie", "value": 6 },
-        { "name": "Muffin", "value": 4 }
+        { "name": "Coffee", "value": 5 },
+        { "name": "Sandwich", "value": 15 },
+        { "name": "Pastry - Sweet", "value": 10 },
+        { "name": "Pastry - Savoury", "value": 15 }
       ];
-    } else if (this.name === "Ataraxia") {
+    } else if (this.name === "Muffin Collective") {
       return [
-        { "name": "Croissant", "value": 10 },
-        { "name": "Bruschetta", "value": 16 },
-        { "name": "Coffee", "value": 4 },
-        { "name": "Cinammon Scroll", "value": 5 },
-        { "name": "Meat Pie", "value": 6 },
-        { "name": "Muffin", "value": 4 }
+        { "name": "Sourdough", "value": 8 },
+        { "name": "Cruffin", "value": 7 },
+        { "name": "Muffin", "value": 6 },
+        { "name": "Cronut", "value": 5 }
       ];
     } else {
       return null;
     }
   }
-
-
-
 }
