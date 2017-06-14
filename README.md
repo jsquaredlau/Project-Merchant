@@ -17,3 +17,6 @@ You may be prompted to select an IP address. Choose the one corresponding to the
 To build a production version run the command **ionic run ios --device**.
 
 For any application signing issues refer to this page [Ionic iOS Deployment](https://ionicframework.com/docs/intro/deploying/)
+
+# Note
+Requires two LaaS-01-Backend servers running. The URL for the two different servers can be specified in /src/pages/login/login.ts. Firebase config found in app.module.ts is not used. Errors related to it can be simply quelled by adding the config info of a working firebase instance.
